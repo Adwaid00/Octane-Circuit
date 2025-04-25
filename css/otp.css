@@ -1,0 +1,149 @@
+.otp-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.otp-header {
+    margin-bottom: 2rem;
+}
+
+.otp-header h1 {
+    color: #1976D2;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.otp-header p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.otp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.otp-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    text-align: center;
+    letter-spacing: 0.5rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+.otp-input:focus {
+    outline: none;
+    border-color: #1976D2;
+}
+
+.verify-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #1976D2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.verify-btn:hover:not(:disabled) {
+    background-color: #1565C0;
+}
+
+.verify-btn:disabled {
+    background-color: #90CAF9;
+    cursor: not-allowed;
+}
+
+.resend-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.resend-btn {
+    background: none;
+    border: none;
+    color: #1976D2;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+.resend-btn:disabled {
+    color: #90CAF9;
+    cursor: not-allowed;
+}
+
+.timer {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.back-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-link:hover {
+    color: #1976D2;
+}
+
+.message {
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.message.success {
+    display: block;
+    background-color: #E8F5E9;
+    color: #2E7D32;
+    border: 1px solid #A5D6A7;
+}
+
+.message.error {
+    display: block;
+    background-color: #FFEBEE;
+    color: #C62828;
+    border: 1px solid #FFCDD2;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .otp-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .otp-header h1 {
+        font-size: 20px;
+    }
+
+    .otp-input {
+        width: 180px;
+        font-size: 16px;
+    }
+} 

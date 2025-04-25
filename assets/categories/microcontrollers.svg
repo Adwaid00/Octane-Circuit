@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#ff4800"/>
+    <text x="200" y="150" font-family="Arial" font-size="32" fill="white" text-anchor="middle">
+        Microcontrollers
+    </text>
+    <rect x="100" y="100" width="200" height="100" stroke="white" stroke-width="2" fill="none"/>
+    <circle cx="150" cy="150" r="10" fill="white"/>
+    <circle cx="250" cy="150" r="10" fill="white"/>
+</svg> 

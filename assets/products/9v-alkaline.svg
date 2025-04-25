@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#fff3e0"/>
+    <!-- Battery Body -->
+    <rect x="150" y="80" width="100" height="160" fill="#ff9800" rx="5"/>
+    <!-- Battery Top -->
+    <rect x="170" y="60" width="60" height="20" fill="#f57c00"/>
+    <circle cx="180" cy="70" r="5" fill="#red"/>
+    <circle cx="220" cy="70" r="5" fill="#black"/>
+    <!-- Battery Label -->
+    <text x="200" y="140" font-family="Arial" font-size="36" fill="white" text-anchor="middle">
+        9V
+    </text>
+    <text x="200" y="170" font-family="Arial" font-size="16" fill="white" text-anchor="middle">
+        Alkaline
+    </text>
+    <!-- Battery Stripes -->
+    <rect x="150" y="190" width="100" height="10" fill="#f57c00"/>
+    <rect x="150" y="210" width="100" height="10" fill="#f57c00"/>
+</svg> 

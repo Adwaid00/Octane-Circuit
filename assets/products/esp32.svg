@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Board -->
+    <rect x="50" y="50" width="300" height="200" fill="#000000" rx="10"/>
+    
+    <!-- USB Port -->
+    <rect x="30" y="120" width="30" height="60" fill="#A9A9A9"/>
+    
+    <!-- Components -->
+    <rect x="100" y="80" width="50" height="50" fill="#333333"/> <!-- ESP32 Module -->
+    <rect x="170" y="90" width="20" height="20" fill="#C0C0C0"/> <!-- Crystal -->
+    <rect x="200" y="80" width="120" height="20" fill="#FFD700"/> <!-- Pin Headers -->
+    <rect x="200" y="200" width="120" height="20" fill="#FFD700"/> <!-- Pin Headers -->
+    
+    <!-- Antenna -->
+    <path d="M 100 80 Q 80 60 60 80" stroke="#C0C0C0" fill="none" stroke-width="2"/>
+    
+    <!-- LEDs -->
+    <circle cx="350" cy="80" r="5" fill="#00FF00"/> <!-- Power LED -->
+    <circle cx="350" cy="100" r="5" fill="#0000FF"/> <!-- WiFi LED -->
+    
+    <!-- Text -->
+    <text x="200" y="150" fill="white" text-anchor="middle" font-family="Arial" font-size="24">
+        ESP32 DevKit
+    </text>
+</svg> 

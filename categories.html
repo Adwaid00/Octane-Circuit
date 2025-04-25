@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - Octane Circuits</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .category-tile {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .category-tile:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-tile img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 1rem;
+        }
+        
+        .category-tile h3 {
+            margin: 0.5rem 0;
+            color: #333;
+        }
+        
+        .category-tile p {
+            color: #666;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .category-count {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="assets/logo.svg" alt="Octane Circuits Logo" class="logo-img">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search categories...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <a href="login.html" class="account"><i class="fas fa-user"></i> Login</a>
+                <a href="#" class="cart"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">0</span></a>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="categories.html" class="active">Categories</a>
+            <a href="#new-arrivals">New Arrivals</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 style="text-align: center; margin: 2rem 0;">Product Categories</h1>
+        
+        <div class="categories-grid">
+            <a href="products.html#microcontrollers" class="category-tile">
+                <img src="assets/categories/microcontrollers.svg" alt="Microcontrollers">
+                <h3>Microcontrollers</h3>
+                <p>Arduino, ESP32, Raspberry Pi Pico, and more</p>
+                <span class="category-count">15 Products</span>
+            </a>
+
+            <a href="sensors.html" class="category-tile">
+                <img src="assets/categories/sensors.svg" alt="Sensors">
+                <h3>Sensors</h3>
+                <p>Temperature, Pressure, Motion, and Environmental Sensors</p>
+                <span class="category-count">25 Products</span>
+            </a>
+
+            <a href="products.html#passive" class="category-tile">
+                <img src="assets/categories/passive.svg" alt="Passive Components">
+                <h3>Passive Components</h3>
+                <p>Resistors, Capacitors, Inductors, and more</p>
+                <span class="category-count">100+ Products</span>
+            </a>
+
+            <a href="products.html#ics" class="category-tile">
+                <img src="assets/categories/ics.svg" alt="Integrated Circuits">
+                <h3>Integrated Circuits</h3>
+                <p>Microprocessors, Op-amps, Motor Drivers, Logic ICs</p>
+                <span class="category-count">50+ Products</span>
+            </a>
+
+            <a href="batteries.html" class="category-tile">
+                <img src="assets/categories/batteries.svg" alt="Batteries">
+                <h3>Batteries</h3>
+                <p>Li-ion, LiPo, Alkaline, and Rechargeable Batteries</p>
+                <span class="category-count">20 Products</span>
+            </a>
+
+            <a href="products.html#tools" class="category-tile">
+                <img src="assets/categories/tools.svg" alt="Tools">
+                <h3>Tools</h3>
+                <p>Soldering Equipment, Testers, and Hand Tools</p>
+                <span class="category-count">30 Products</span>
+            </a>
+
+            <a href="products.html#modules" class="category-tile">
+                <img src="assets/categories/modules.svg" alt="Modules">
+                <h3>Modules</h3>
+                <p>Display, Communication, Power, and Interface Modules</p>
+                <span class="category-count">40 Products</span>
+            </a>
+
+            <a href="products.html#active" class="category-tile">
+                <img src="assets/categories/active.svg" alt="Active Components">
+                <h3>Active Components</h3>
+                <p>Transistors, Diodes, MOSFETs, and more</p>
+                <span class="category-count">75+ Products</span>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Octane Circuits</h3>
+                <p>Your trusted partner for premium electronic components and modules.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@octanecircuits.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Octane Circuits. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

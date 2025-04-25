@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Board -->
+    <rect x="50" y="50" width="300" height="200" fill="#00979D" rx="10"/>
+    
+    <!-- USB Port -->
+    <rect x="30" y="120" width="30" height="60" fill="#A9A9A9"/>
+    
+    <!-- Components -->
+    <rect x="100" y="80" width="40" height="40" fill="#333333"/> <!-- MCU -->
+    <rect x="160" y="90" width="20" height="20" fill="#C0C0C0"/> <!-- Crystal -->
+    <rect x="200" y="80" width="120" height="20" fill="#FFD700"/> <!-- Pin Headers -->
+    <rect x="200" y="200" width="120" height="20" fill="#FFD700"/> <!-- Pin Headers -->
+    
+    <!-- LEDs -->
+    <circle cx="350" cy="80" r="5" fill="#00FF00"/> <!-- Power LED -->
+    <circle cx="350" cy="100" r="5" fill="#FF0000"/> <!-- Status LED -->
+    
+    <!-- Text -->
+    <text x="200" y="150" fill="white" text-anchor="middle" font-family="Arial" font-size="24">
+        Arduino Nano
+    </text>
+</svg> 

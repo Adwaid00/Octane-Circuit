@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Board -->
+    <rect x="50" y="50" width="300" height="200" fill="#3DA639" rx="10"/>
+    
+    <!-- USB Ports -->
+    <rect x="60" y="70" width="30" height="20" fill="#A9A9A9"/>
+    <rect x="100" y="70" width="30" height="20" fill="#A9A9A9"/>
+    <rect x="140" y="70" width="30" height="20" fill="#A9A9A9"/>
+    <rect x="180" y="70" width="30" height="20" fill="#A9A9A9"/>
+    
+    <!-- Ethernet Port -->
+    <rect x="220" y="70" width="40" height="30" fill="#C0C0C0"/>
+    
+    <!-- Components -->
+    <rect x="100" y="120" width="60" height="60" fill="#333333"/> <!-- SoC -->
+    <rect x="180" y="130" width="30" height="30" fill="#C0C0C0"/> <!-- RAM -->
+    <rect x="60" y="200" width="120" height="20" fill="#FFD700"/> <!-- GPIO Headers -->
+    <rect x="200" y="200" width="120" height="20" fill="#FFD700"/> <!-- GPIO Headers -->
+    
+    <!-- Text -->
+    <text x="200" y="160" fill="white" text-anchor="middle" font-family="Arial" font-size="24">
+        Raspberry Pi
+    </text>
+</svg> 

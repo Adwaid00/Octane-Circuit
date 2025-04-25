@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#eceff1"/>
+    <!-- Battery Pack Container -->
+    <rect x="100" y="80" width="200" height="160" fill="#90a4ae" rx="10"/>
+    <!-- Four AA Batteries -->
+    <g transform="translate(120,100)">
+        <!-- Battery 1 -->
+        <rect width="160" height="25" fill="#78909c" rx="5"/>
+        <circle cx="5" cy="12.5" r="5" fill="white"/>
+        <rect x="150" y="7.5" width="5" height="10" fill="white"/>
+    </g>
+    <g transform="translate(120,135)">
+        <!-- Battery 2 -->
+        <rect width="160" height="25" fill="#78909c" rx="5"/>
+        <circle cx="5" cy="12.5" r="5" fill="white"/>
+        <rect x="150" y="7.5" width="5" height="10" fill="white"/>
+    </g>
+    <g transform="translate(120,170)">
+        <!-- Battery 3 -->
+        <rect width="160" height="25" fill="#78909c" rx="5"/>
+        <circle cx="5" cy="12.5" r="5" fill="white"/>
+        <rect x="150" y="7.5" width="5" height="10" fill="white"/>
+    </g>
+    <g transform="translate(120,205)">
+        <!-- Battery 4 -->
+        <rect width="160" height="25" fill="#78909c" rx="5"/>
+        <circle cx="5" cy="12.5" r="5" fill="white"/>
+        <rect x="150" y="7.5" width="5" height="10" fill="white"/>
+    </g>
+    <!-- Label -->
+    <text x="200" y="70" font-family="Arial" font-size="20" fill="#37474f" text-anchor="middle">
+        AA NiMH 2800mAh (4-Pack)
+    </text>
+</svg> 

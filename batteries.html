@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batteries - Octane Circuits</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="assets/logo.svg" alt="Octane Circuits Logo" class="logo-img">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for batteries...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <a href="login.html" class="account"><i class="fas fa-user"></i> Login</a>
+                <a href="#" class="cart"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">0</span></a>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="#categories">Categories</a>
+            <a href="#new-arrivals">New Arrivals</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="product-page-container">
+        <aside class="filters">
+            <div class="filter-section">
+                <h3>Battery Type</h3>
+                <label><input type="checkbox" name="type" value="lithium"> Lithium-ion</label>
+                <label><input type="checkbox" name="type" value="lipo"> LiPo</label>
+                <label><input type="checkbox" name="type" value="alkaline"> Alkaline</label>
+                <label><input type="checkbox" name="type" value="nimh"> NiMH</label>
+            </div>
+            <div class="filter-section">
+                <h3>Voltage Range</h3>
+                <label><input type="checkbox" name="voltage" value="3.7"> 3.7V</label>
+                <label><input type="checkbox" name="voltage" value="7.4"> 7.4V</label>
+                <label><input type="checkbox" name="voltage" value="11.1"> 11.1V</label>
+                <label><input type="checkbox" name="voltage" value="14.8"> 14.8V</label>
+            </div>
+            <div class="filter-section">
+                <h3>Capacity</h3>
+                <label><input type="checkbox" name="capacity" value="1000"> 1000mAh</label>
+                <label><input type="checkbox" name="capacity" value="2200"> 2200mAh</label>
+                <label><input type="checkbox" name="capacity" value="3000"> 3000mAh</label>
+                <label><input type="checkbox" name="capacity" value="5000"> 5000mAh</label>
+            </div>
+        </aside>
+
+        <main class="product-list">
+            <h1>Batteries</h1>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-badge new">New</div>
+                    <img src="assets/products/18650-battery.svg" alt="18650 Li-ion Battery">
+                    <h3>18650 Li-ion Battery</h3>
+                    <div class="specs">
+                        <p>• 3.7V Lithium-ion</p>
+                        <p>• 2200mAh Capacity</p>
+                        <p>• Protected Circuit</p>
+                        <p>• Rechargeable</p>
+                    </div>
+                    <div class="stock in-stock">In Stock</div>
+                    <div class="price">₹449.00</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge popular">Popular</div>
+                    <img src="assets/products/lipo-2200.svg" alt="2200mAh LiPo Battery">
+                    <h3>2200mAh LiPo Battery</h3>
+                    <div class="specs">
+                        <p>• 7.4V (2S) LiPo</p>
+                        <p>• 2200mAh Capacity</p>
+                        <p>• 30C Discharge Rate</p>
+                        <p>• XT60 Connector</p>
+                    </div>
+                    <div class="stock in-stock">In Stock</div>
+                    <div class="price">₹1,499.00</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="assets/products/9v-alkaline.svg" alt="9V Alkaline Battery">
+                    <h3>9V Alkaline Battery</h3>
+                    <div class="specs">
+                        <p>• 9V Alkaline</p>
+                        <p>• Long-lasting</p>
+                        <p>• High Performance</p>
+                        <p>• Non-rechargeable</p>
+                    </div>
+                    <div class="stock low-stock">Low Stock</div>
+                    <div class="price">₹149.00</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge best">Best Seller</div>
+                    <img src="assets/products/aa-nimh.svg" alt="AA NiMH Batteries">
+                    <h3>AA NiMH Batteries (4-Pack)</h3>
+                    <div class="specs">
+                        <p>• 1.2V NiMH</p>
+                        <p>• 2800mAh Capacity</p>
+                        <p>• Rechargeable</p>
+                        <p>• Low Self-discharge</p>
+                    </div>
+                    <div class="stock in-stock">In Stock</div>
+                    <div class="price">₹799.00</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="assets/products/lipo-5000.svg" alt="5000mAh LiPo Battery">
+                    <h3>5000mAh LiPo Battery</h3>
+                    <div class="specs">
+                        <p>• 11.1V (3S) LiPo</p>
+                        <p>• 5000mAh Capacity</p>
+                        <p>• 50C Discharge Rate</p>
+                        <p>• XT90 Connector</p>
+                    </div>
+                    <div class="stock in-stock">In Stock</div>
+                    <div class="price">₹2,999.00</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>Next →</button>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Octane Circuits</h3>
+                <p>Your trusted partner for premium electronic components and modules.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@octanecircuits.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Octane Circuits. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

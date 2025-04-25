@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Board -->
+    <rect x="50" y="50" width="300" height="200" fill="#0066CC" rx="5"/>
+    
+    <!-- Heat Sink -->
+    <rect x="150" y="70" width="100" height="80" fill="#A9A9A9"/>
+    <rect x="160" y="70" width="5" height="80" fill="#808080"/>
+    <rect x="175" y="70" width="5" height="80" fill="#808080"/>
+    <rect x="190" y="70" width="5" height="80" fill="#808080"/>
+    <rect x="205" y="70" width="5" height="80" fill="#808080"/>
+    <rect x="220" y="70" width="5" height="80" fill="#808080"/>
+    <rect x="235" y="70" width="5" height="80" fill="#808080"/>
+    
+    <!-- Terminal Blocks -->
+    <rect x="70" y="170" width="80" height="40" fill="#2E2E2E"/> <!-- Motor A -->
+    <rect x="250" y="170" width="80" height="40" fill="#2E2E2E"/> <!-- Motor B -->
+    
+    <!-- Pin Headers -->
+    <rect x="70" y="80" width="60" height="20" fill="#FFD700"/> <!-- Control Pins -->
+    <rect x="270" y="80" width="60" height="20" fill="#FFD700"/> <!-- Power Pins -->
+    
+    <!-- Text -->
+    <text x="200" y="270" fill="#333" text-anchor="middle" font-family="Arial" font-size="24">
+        L298N Motor Driver
+    </text>
+</svg> 

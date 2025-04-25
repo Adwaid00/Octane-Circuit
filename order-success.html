@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success - Octane Circuits</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .success-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            text-align: center;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .success-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+        .order-details {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .order-details p {
+            margin: 0.5rem 0;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="assets/logo.svg" alt="Octane Circuits Logo" class="logo-img">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for components...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <a href="login.html" class="account"><i class="fas fa-user"></i> Account</a>
+                <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">0</span></a>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="#categories">Categories</a>
+            <a href="#new-arrivals">New Arrivals</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="success-container">
+        <i class="fas fa-check-circle success-icon"></i>
+        <h1>Order Placed Successfully!</h1>
+        <p>Thank you for shopping with Octane Circuits</p>
+        
+        <div class="order-details">
+            <h2>Order Details</h2>
+            <p>Order ID: <span id="orderId"></span></p>
+            <p>Estimated Delivery: <span id="deliveryDate"></span></p>
+            <p>Payment Method: <span id="paymentMethod"></span></p>
+        </div>
+
+        <div class="action-buttons">
+            <a href="index.html" class="btn primary">Continue Shopping</a>
+            <a href="#" class="btn secondary">Track Order</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Octane Circuits</h3>
+                <p>Your trusted partner for premium electronic components and modules.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@octanecircuits.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Octane Circuits. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Generate random order ID and delivery date
+        document.getElementById('orderId').textContent = 'OC' + Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+        
+        // Set delivery date to 3-5 days from now
+        const deliveryDate = new Date();
+        deliveryDate.setDate(deliveryDate.getDate() + Math.floor(Math.random() * 3) + 3);
+        document.getElementById('deliveryDate').textContent = deliveryDate.toLocaleDateString();
+        
+        // Get payment method from localStorage
+        const paymentMethod = localStorage.getItem('lastPaymentMethod') || 'UPI';
+        document.getElementById('paymentMethod').textContent = paymentMethod;
+    </script>
+</body>
+</html> 

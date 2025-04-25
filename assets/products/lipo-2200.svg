@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#e3f2fd"/>
+    <!-- Battery Pack -->
+    <rect x="100" y="100" width="200" height="120" fill="#1976d2" rx="5"/>
+    <!-- Battery Label -->
+    <text x="200" y="150" font-family="Arial" font-size="24" fill="white" text-anchor="middle">
+        LiPo 2S
+    </text>
+    <text x="200" y="180" font-family="Arial" font-size="16" fill="white" text-anchor="middle">
+        7.4V 2200mAh
+    </text>
+    <!-- XT60 Connector -->
+    <rect x="300" y="130" width="40" height="30" fill="#fdd835"/>
+    <rect x="310" y="135" width="20" height="20" fill="#f57f17"/>
+    <!-- Warning Label -->
+    <text x="200" y="210" font-family="Arial" font-size="12" fill="#ffeb3b" text-anchor="middle">
+        High Discharge Rate
+    </text>
+</svg> 

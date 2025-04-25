@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#e3f2fd"/>
+    <!-- Battery Pack -->
+    <rect x="80" y="80" width="240" height="140" fill="#0d47a1" rx="5"/>
+    <!-- Battery Label -->
+    <text x="200" y="130" font-family="Arial" font-size="24" fill="white" text-anchor="middle">
+        LiPo 3S
+    </text>
+    <text x="200" y="160" font-family="Arial" font-size="16" fill="white" text-anchor="middle">
+        11.1V 5000mAh
+    </text>
+    <!-- XT90 Connector -->
+    <rect x="320" y="120" width="50" height="40" fill="#ffd600"/>
+    <rect x="330" y="125" width="30" height="30" fill="#ff6f00"/>
+    <!-- Warning Labels -->
+    <text x="200" y="190" font-family="Arial" font-size="12" fill="#ffeb3b" text-anchor="middle">
+        High Capacity | 50C Discharge
+    </text>
+    <!-- Battery Cells Indication -->
+    <rect x="100" y="100" width="60" height="100" fill="#1565c0" rx="2"/>
+    <rect x="170" y="100" width="60" height="100" fill="#1565c0" rx="2"/>
+    <rect x="240" y="100" width="60" height="100" fill="#1565c0" rx="2"/>
+</svg> 

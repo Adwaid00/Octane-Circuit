@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Circuit Lines -->
+    <path d="M 10 10 L 40 10 L 40 40 L 70 40 L 70 70 L 90 70" 
+          stroke="#2196F3" 
+          stroke-width="2" 
+          fill="none" 
+          opacity="0.2"/>
+    
+    <!-- Connection Points -->
+    <circle cx="10" cy="10" r="3" fill="#2196F3" opacity="0.2"/>
+    <circle cx="40" cy="40" r="3" fill="#2196F3" opacity="0.2"/>
+    <circle cx="70" cy="70" r="3" fill="#2196F3" opacity="0.2"/>
+    <circle cx="90" cy="70" r="3" fill="#2196F3" opacity="0.2"/>
+    
+    <!-- Additional Circuit Elements -->
+    <rect x="35" y="35" width="10" height="10" 
+          stroke="#2196F3" 
+          stroke-width="2" 
+          fill="none" 
+          opacity="0.2"/>
+    
+    <path d="M 65 65 L 75 65 L 75 75 L 65 75 Z" 
+          stroke="#2196F3" 
+          stroke-width="2" 
+          fill="none" 
+          opacity="0.2"/>
+    
+    <!-- Diagonal Lines -->
+    <line x1="0" y1="100" x2="20" y2="80" 
+          stroke="#2196F3" 
+          stroke-width="2" 
+          opacity="0.1"/>
+    
+    <line x1="80" y1="20" x2="100" y2="0" 
+          stroke="#2196F3" 
+          stroke-width="2" 
+          opacity="0.1"/>
+</svg> 

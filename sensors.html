@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensors - Octane Circuits</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="assets/logo.svg" alt="Octane Circuits Logo" class="logo-img">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for sensors...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <a href="login.html" class="account"><i class="fas fa-user"></i> Account</a>
+                <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">0</span></a>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="sensors.html" class="active">Sensors</a>
+            <a href="#categories">Categories</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="sensors-page">
+        <aside class="filters-sidebar">
+            <div class="filter-section">
+                <h3>Categories</h3>
+                <ul class="filter-list">
+                    <li><label><input type="checkbox"> Temperature Sensors</label></li>
+                    <li><label><input type="checkbox"> Humidity Sensors</label></li>
+                    <li><label><input type="checkbox"> Motion Sensors</label></li>
+                    <li><label><input type="checkbox"> Pressure Sensors</label></li>
+                    <li><label><input type="checkbox"> Gas Sensors</label></li>
+                    <li><label><input type="checkbox"> Light Sensors</label></li>
+                </ul>
+            </div>
+
+            <div class="filter-section">
+                <h3>Price Range</h3>
+                <div class="price-slider">
+                    <input type="range" min="0" max="100" value="50">
+                    <div class="price-inputs">
+                        <input type="number" placeholder="Min" value="0">
+                        <span>to</span>
+                        <input type="number" placeholder="Max" value="100">
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Brands</h3>
+                <ul class="filter-list">
+                    <li><label><input type="checkbox"> Bosch</label></li>
+                    <li><label><input type="checkbox"> DHT</label></li>
+                    <li><label><input type="checkbox"> Sharp</label></li>
+                    <li><label><input type="checkbox"> Honeywell</label></li>
+                </ul>
+            </div>
+        </aside>
+
+        <section class="sensors-list">
+            <div class="sensors-header">
+                <h1>Sensors</h1>
+                <div class="sort-options">
+                    <span>Sort By:</span>
+                    <select>
+                        <option>Popularity</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest First</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="sensor-items">
+                <!-- Temperature Sensors -->
+                <div class="sensor-item">
+                    <div class="sensor-image">
+                        <img src="https://www.electronicscomp.com/image/cache/catalog/dht11-temperature-humidity-sensor-module-india-800x800.jpg" alt="DHT11 Sensor">
+                        <button class="quick-view"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="sensor-details">
+                        <h2>Temperature Sensors</h2>
+                        <div class="sensor-specs">
+                            <span><i class="fas fa-thermometer-half"></i> Various temperature ranges</span>
+                            <span><i class="fas fa-microchip"></i> Digital & Analog options</span>
+                            <span><i class="fas fa-check-circle"></i> High precision readings</span>
+                        </div>
+                        <div class="sensor-price">
+                            <div class="price-info">
+                                <span class="current-price">Starting from ₹149</span>
+                            </div>
+                            <a href="sensor-list.html#temperature" class="add-to-cart">View All</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Motion Sensors -->
+                <div class="sensor-item">
+                    <div class="sensor-image">
+                        <img src="https://www.electronicscomp.com/image/cache/catalog/pir-motion-sensor-module-800x800.jpg" alt="PIR Motion Sensor">
+                        <button class="quick-view"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="sensor-details">
+                        <h2>Motion Sensors</h2>
+                        <div class="sensor-specs">
+                            <span><i class="fas fa-running"></i> PIR & Ultrasonic options</span>
+                            <span><i class="fas fa-expand-arrows-alt"></i> Various detection ranges</span>
+                            <span><i class="fas fa-clock"></i> Adjustable sensitivity</span>
+                        </div>
+                        <div class="sensor-price">
+                            <div class="price-info">
+                                <span class="current-price">Starting from ₹89</span>
+                            </div>
+                            <a href="sensor-list.html#motion" class="add-to-cart">View All</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gas Sensors -->
+                <div class="sensor-item">
+                    <div class="sensor-image">
+                        <img src="https://www.electronicscomp.com/image/cache/catalog/mq2-gas-sensor-module-800x800.jpg" alt="MQ2 Gas Sensor">
+                        <button class="quick-view"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="sensor-details">
+                        <h2>Gas Sensors</h2>
+                        <div class="sensor-specs">
+                            <span><i class="fas fa-wind"></i> Multiple gas detection</span>
+                            <span><i class="fas fa-chart-line"></i> High sensitivity</span>
+                            <span><i class="fas fa-shield-alt"></i> Safety monitoring</span>
+                        </div>
+                        <div class="sensor-price">
+                            <div class="price-info">
+                                <span class="current-price">Starting from ₹129</span>
+                            </div>
+                            <a href="sensor-list.html#gas" class="add-to-cart">View All</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <span>...</span>
+                <button>10</button>
+                <button class="next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Octane Circuits</h3>
+                <p>Your trusted partner for premium electronic components and modules.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@octanecircuits.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Octane Circuits. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+    <script src="js/filters.js"></script>
+</body>
+</html> 

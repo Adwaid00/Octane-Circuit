@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <rect width="800" height="600" fill="#2c3e50"/>
+    <text x="400" y="300" font-family="Arial" font-size="48" fill="white" text-anchor="middle">
+        Electronic Components
+    </text>
+    <g stroke="white" stroke-width="2" fill="none">
+        <circle cx="200" cy="200" r="30"/>
+        <path d="M230 200 H 300"/>
+        <circle cx="500" cy="200" r="30"/>
+        <path d="M470 200 H 400"/>
+        <path d="M200 230 V 300"/>
+        <path d="M500 230 V 300"/>
+    </g>
+</svg> 

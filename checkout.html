@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Octane Circuits</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .payment-methods {
+            margin-top: 2rem;
+        }
+        .payment-method {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .payment-method:hover {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0,123,255,0.1);
+            transform: translateY(-2px);
+        }
+        .payment-method.selected {
+            border-color: #007bff;
+            background-color: #f8f9ff;
+            box-shadow: 0 0 15px rgba(0,123,255,0.15);
+        }
+        .payment-method.selected::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-top: 30px solid #007bff;
+            border-left: 30px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .payment-method.selected::before {
+            content: '✓';
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            color: white;
+            font-size: 14px;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .payment-method-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .payment-method-header i {
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+        .payment-details {
+            margin-top: 1rem;
+            display: none;
+            animation: slideDown 0.3s ease;
+            transform-origin: top;
+        }
+        .payment-details.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        .card-input {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        .card-input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.2);
+            outline: none;
+        }
+        .card-input.valid {
+            border-color: #28a745;
+            background-color: rgba(40, 167, 69, 0.05);
+        }
+        .card-input.invalid {
+            border-color: #dc3545;
+            background-color: rgba(220, 53, 69, 0.05);
+        }
+        .upi-apps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .upi-app {
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .upi-app:hover {
+            border-color: #007bff;
+            transform: translateY(-2px);
+            box-shadow: 0 0 10px rgba(0,123,255,0.1);
+        }
+        .upi-app.selected {
+            border-color: #007bff;
+            background-color: #f8f9ff;
+            box-shadow: 0 0 15px rgba(0,123,255,0.15);
+        }
+        .upi-app.selected::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-top: 20px solid #007bff;
+            border-left: 20px solid transparent;
+        }
+        .upi-app.selected::before {
+            content: '✓';
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            color: white;
+            font-size: 10px;
+            z-index: 1;
+        }
+        .upi-app img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+        .upi-app span {
+            display: block;
+            margin-top: 0.5rem;
+        }
+        .cod-info {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 1rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .cod-info i {
+            font-size: 1.2rem;
+        }
+        @keyframes slideDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .payment-security {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        .payment-security:hover {
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0,123,255,0.1);
+        }
+        .payment-security i {
+            color: #28a745;
+            font-size: 1.8rem;
+            animation: pulse 2s infinite;
+        }
+        .payment-security p {
+            margin: 0;
+            font-size: 1rem;
+            color: #495057;
+            line-height: 1.5;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+        .loading-text {
+            font-size: 1.2rem;
+            color: #333;
+            animation: pulse 1.5s infinite;
+        }
+        .error-message {
+            color: #dc3545;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        .input-group i {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #28a745;
+            display: none;
+            transition: all 0.3s ease;
+        }
+        .input-group.valid i {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        .input-group.invalid .error-message {
+            display: block;
+        }
+        .payment-method-logo {
+            width: 30px;
+            height: 20px;
+            object-fit: contain;
+            margin-left: auto;
+        }
+        .card-types {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .card-type {
+            width: 40px;
+            height: 25px;
+            object-fit: contain;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+        .card-type.active {
+            opacity: 1;
+        }
+        .payment-recommendation {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideIn 0.5s ease;
+        }
+        .payment-recommendation i {
+            color: #1976d2;
+            font-size: 1.5rem;
+        }
+        .payment-recommendation p {
+            margin: 0;
+            color: #1976d2;
+            font-size: 0.95rem;
+        }
+        .payment-recommendation .recommended-method {
+            font-weight: 600;
+            color: #1565c0;
+        }
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .order-summary {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+        }
+        .order-items {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        .order-item:hover {
+            background-color: #f8f9fa;
+        }
+        .item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .item-name {
+            font-weight: 600;
+            color: #333;
+        }
+        .item-quantity {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .item-price {
+            font-weight: 600;
+            color: #1976d2;
+        }
+        .order-total {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        .order-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+        }
+        .order-row.total {
+            border-top: 1px solid #ddd;
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .total-amount {
+            color: #1976d2;
+        }
+        .shipping-info {
+            background: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .shipping-info i {
+            color: #2e7d32;
+            font-size: 1.5rem;
+        }
+        .shipping-info p {
+            margin: 0;
+            color: #2e7d32;
+            font-size: 0.95rem;
+        }
+        .estimated-delivery {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        .place-order-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .place-order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .place-order-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="assets/logo.svg" alt="Octane Circuits Logo" class="logo-img">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for components...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <a href="login.html" class="account"><i class="fas fa-user"></i> Account</a>
+                <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">0</span></a>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="#categories">Categories</a>
+            <a href="#new-arrivals">New Arrivals</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="checkout-container">
+        <h1>Checkout</h1>
+        
+        <div class="checkout-content">
+            <div class="checkout-form">
+                <h2>Shipping Information</h2>
+                <form id="shippingForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">PIN Code</label>
+                        <input type="text" id="pincode" required>
+                    </div>
+                </form>
+
+                <div class="payment-methods">
+                    <h2>Payment Method</h2>
+                    
+                    <div class="payment-recommendation">
+                        <i class="fas fa-lightbulb"></i>
+                        <p>Based on your order value, we recommend using <span class="recommended-method">UPI Payment</span> for a faster checkout experience.</p>
+                    </div>
+
+                    <div class="payment-method" data-method="upi">
+                        <div class="payment-method-header">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>UPI Payment</h3>
+                        </div>
+                        <div class="payment-details">
+                            <div class="upi-apps">
+                                <div class="upi-app">
+                                    <img src="assets/payment/gpay.svg" alt="Google Pay">
+                                    <span>Google Pay</span>
+                                </div>
+                                <div class="upi-app">
+                                    <img src="assets/payment/phonepe.svg" alt="PhonePe">
+                                    <span>PhonePe</span>
+                                </div>
+                                <div class="upi-app">
+                                    <img src="assets/payment/paytm.svg" alt="Paytm">
+                                    <span>Paytm</span>
+                                </div>
+                                <div class="upi-app">
+                                    <img src="assets/payment/bhim.svg" alt="BHIM">
+                                    <span>BHIM</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="upiId">UPI ID</label>
+                                <input type="text" id="upiId" placeholder="Enter your UPI ID" class="card-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-method" data-method="card">
+                        <div class="payment-method-header">
+                            <i class="fas fa-credit-card"></i>
+                            <h3>Credit/Debit Card</h3>
+                            <div class="card-types">
+                                <img src="assets/payment/visa.svg" alt="Visa" class="card-type" data-type="visa">
+                                <img src="assets/payment/mastercard.svg" alt="Mastercard" class="card-type" data-type="mastercard">
+                                <img src="assets/payment/amex.svg" alt="American Express" class="card-type" data-type="amex">
+                                <img src="assets/payment/rupay.svg" alt="RuPay" class="card-type" data-type="rupay">
+                            </div>
+                        </div>
+                        <div class="payment-details">
+                            <div class="form-group input-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" class="card-input">
+                                <i class="fas fa-check-circle"></i>
+                                <div class="error-message">Please enter a valid card number</div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group input-group">
+                                    <label for="expiry">Expiry Date</label>
+                                    <input type="text" id="expiry" placeholder="MM/YY" class="card-input">
+                                    <i class="fas fa-check-circle"></i>
+                                    <div class="error-message">Please enter a valid expiry date</div>
+                                </div>
+                                <div class="form-group input-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" placeholder="123" class="card-input">
+                                    <i class="fas fa-check-circle"></i>
+                                    <div class="error-message">Please enter a valid CVV</div>
+                                </div>
+                            </div>
+                            <div class="form-group input-group">
+                                <label for="cardName">Name on Card</label>
+                                <input type="text" id="cardName" placeholder="Enter name as on card" class="card-input">
+                                <i class="fas fa-check-circle"></i>
+                                <div class="error-message">Please enter the name on card</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-method" data-method="netbanking">
+                        <div class="payment-method-header">
+                            <i class="fas fa-university"></i>
+                            <h3>Net Banking</h3>
+                        </div>
+                        <div class="payment-details">
+                            <div class="form-group">
+                                <label for="bank">Select Bank</label>
+                                <select id="bank" class="card-input">
+                                    <option value="">Select your bank</option>
+                                    <option value="sbi">State Bank of India</option>
+                                    <option value="hdfc">HDFC Bank</option>
+                                    <option value="icici">ICICI Bank</option>
+                                    <option value="axis">Axis Bank</option>
+                                    <option value="kotak">Kotak Mahindra Bank</option>
+                                    <option value="pnb">Punjab National Bank</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-method" data-method="cod">
+                        <div class="payment-method-header">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <h3>Cash on Delivery</h3>
+                        </div>
+                        <div class="payment-details">
+                            <p class="cod-info">
+                                <i class="fas fa-info-circle"></i>
+                                Pay in cash when your order is delivered. An additional ₹50 will be charged for COD orders.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="payment-security">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>Your payment information is secure and encrypted. We never store your card details.</p>
+                </div>
+            </div>
+
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <div class="order-items">
+                    <!-- Order items will be dynamically added here -->
+                </div>
+                <div class="order-total">
+                    <div class="order-row">
+                        <span>Subtotal:</span>
+                        <span class="subtotal">₹0.00</span>
+                    </div>
+                    <div class="order-row">
+                        <span>Shipping:</span>
+                        <span class="shipping">₹99.00</span>
+                    </div>
+                    <div class="order-row total">
+                        <span>Total:</span>
+                        <span class="total-amount">₹99.00</span>
+                    </div>
+                </div>
+                <div class="shipping-info">
+                    <i class="fas fa-truck"></i>
+                    <div>
+                        <p>Free shipping on orders above ₹999</p>
+                        <p class="estimated-delivery">Estimated delivery: 3-5 business days</p>
+                    </div>
+                </div>
+                <button class="btn primary place-order-btn">Place Order</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Octane Circuits</h3>
+                <p>Your trusted partner for premium electronic components and modules.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@octanecircuits.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Octane Circuits. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Processing Payment...</div>
+    </div>
+
+    <script src="js/checkout.js"></script>
+</body>
+</html> 
